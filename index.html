@@ -444,6 +444,17 @@ textarea.q-input{resize:vertical;min-height:80px;}
 .cardio-desc{font-size:11px;color:var(--white-dim);line-height:1.8;}
 .exercise-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 .swipe-hint{text-align:center;font-size:10px;color:rgba(201,168,76,0.5);letter-spacing:1.5px;padding:5px 0 10px;}
+
+/* ===== ABAS DE OPÇÃO DE DIETA ===== */
+.versao-tabs{display:flex;gap:6px;margin-bottom:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;padding-bottom:4px;scrollbar-width:none;}
+.versao-tabs::-webkit-scrollbar{display:none;}
+.versao-tab{flex-shrink:0;background:var(--dark2);border:1px solid var(--border);color:var(--white-dim);font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.5px;padding:12px 16px;min-height:40px;cursor:pointer;border-radius:3px;transition:all .3s;white-space:nowrap;-webkit-tap-highlight-color:transparent;}
+.versao-tab:hover{border-color:var(--gold);color:var(--gold);}
+.versao-tab.active{color:var(--gold);border-color:var(--gold);background:rgba(201,168,76,.12);}
+.versao-content{display:none;}
+.versao-content.active{display:block;animation:fadeUp .4s ease;}
+.opcao-banner{background:linear-gradient(135deg,rgba(224,90,90,.06),var(--dark2));border:1px solid rgba(224,90,90,.3);border-radius:4px;padding:13px 16px;margin-bottom:16px;font-size:12px;line-height:1.75;color:var(--white-dim);}
+.opcao-banner strong{color:var(--white);}
 </style>
 </head>
 <body>
@@ -815,7 +826,20 @@ textarea.q-input{resize:vertical;min-height:80px;}
     <div style="font-size:11px;color:var(--white-dim);line-height:1.8;">Com duplas diárias (Hyrox + Corrida + Bike Erg + Musculação), a ingestão calórica está calibrada para <strong style="color:var(--white);">manutenção + suporte à recuperação</strong>. Não pule refeições. Intervalos de 3–4h entre cada uma.</div>
   </div>
 
-  <div class="meal-total"><div class="total-pill"><span class="label">Total diário</span><span class="value">~4.150</span><span style="font-size:10px;color:var(--white-dim);">kcal</span></div></div>
+  <div class="versao-group"><div class="versao-tabs"><button class="versao-tab active" onclick="showVersao('dieta-5ref',this)">✅ 5 refeições · ~3.580</button><button class="versao-tab" onclick="showVersao('dieta-7ref',this)">📋 7 refeições · ~4.150</button></div><div id="dieta-5ref" class="versao-content active"><div class="opcao-banner">🔻 <strong>Opção · 5 refeições (~3.580 kcal)</strong> — versão com menor frequência para facilitar a adesão. Uni o pré e o pós-treino da tarde em uma só refeição e retirei o lanche da manhã. A leve redução calórica é estratégica — a ideia é observar se desperta mais fome ao longo das semanas.</div><div class="meal-total"><div class="total-pill"><span class="label">Total diário</span><span class="value">~3.580</span><span style="font-size:10px;color:var(--white-dim);">kcal</span></div></div><div class="meal-card"><div class="meal-header"><div class="meal-header-left"><div class="meal-num">1</div><div><div class="meal-name">Pré-Corrida</div><span class="meal-time">~04h30 · ao acordar, antes do treino</span></div></div><div class="meal-kcal">~260 <span>kcal</span></div></div><div class="meal-table-wrap"><table class="meal-table"><thead><tr><th>Alimento</th><th>Qtd.</th><th>kcal</th><th>Carb (g)</th><th>Ptn (g)</th><th>Gord (g)</th><th>Observação</th></tr></thead><tbody><tr><td class="food-name">Banana</td><td class="food-qty">2 un (~220g)</td><td class="food-kcal">200</td><td>50</td><td>2</td><td>1</td><td class="food-sub">Energia rápida · potássio · sem glúten</td></tr>
+      <tr><td class="food-name">Mel</td><td class="food-qty">1 colher (20g)</td><td class="food-kcal">60</td><td>17</td><td>0</td><td>0</td><td class="food-sub">Carboidrato de rápida absorção</td></tr></tbody></table></div><p class="swipe-hint">← deslize →</p><div class="meal-obs-area"><textarea placeholder="Observações desta refeição..." data-key="meal-obs-op5-1" onchange="saveObs(this)"></textarea></div></div><div class="meal-card"><div class="meal-header"><div class="meal-header-left"><div class="meal-num">2</div><div><div class="meal-name">Café da Manhã</div><span class="meal-time">~06h · pré-treino matinal</span></div></div><div class="meal-kcal">~858 <span>kcal</span></div></div><div class="meal-table-wrap"><table class="meal-table"><thead><tr><th>Alimento</th><th>Qtd.</th><th>kcal</th><th>Carb (g)</th><th>Ptn (g)</th><th>Gord (g)</th><th>Observação</th></tr></thead><tbody><tr><td class="food-name">Peito de frango grelhado</td><td class="food-qty">150g</td><td class="food-kcal">248</td><td>0</td><td>47</td><td>5</td><td class="food-sub">Proteína de alta qualidade · tolerado</td></tr>
+      <tr><td class="food-name">Tapioca</td><td class="food-qty">100g</td><td class="food-kcal">180</td><td>45</td><td>0</td><td>0</td><td class="food-sub">Carboidrato de rápida absorção · sem glúten</td></tr>
+      <tr><td class="food-name">Frutas variadas</td><td class="food-qty">300g</td><td class="food-kcal">270</td><td>68</td><td>3</td><td>1</td><td class="food-sub">Banana · Mamão · Melão · Abacaxi · Maçã</td></tr>
+      <tr><td class="food-name">Biscoito de arroz</td><td class="food-qty">40g</td><td class="food-kcal">160</td><td>35</td><td>3</td><td>1</td><td class="food-sub">Carboidrato leve · tolerado · sem glúten</td></tr></tbody></table></div><p class="swipe-hint">← deslize →</p><div class="meal-obs-area"><textarea placeholder="Observações desta refeição..." data-key="meal-obs-op5-2" onchange="saveObs(this)"></textarea></div></div><div class="meal-card"><div class="meal-header"><div class="meal-header-left"><div class="meal-num">3</div><div><div class="meal-name">Almoço</div><span class="meal-time">~13h · refeição principal</span></div></div><div class="meal-kcal">~772 <span>kcal</span></div></div><div class="meal-table-wrap"><table class="meal-table"><thead><tr><th>Alimento</th><th>Qtd.</th><th>kcal</th><th>Carb (g)</th><th>Ptn (g)</th><th>Gord (g)</th><th>Observação</th></tr></thead><tbody><tr><td class="food-name">Arroz branco</td><td class="food-qty">300g</td><td class="food-kcal">384</td><td>85</td><td>7</td><td>1</td><td class="food-sub">Sem glúten naturalmente</td></tr>
+      <tr><td class="food-name">Peito de frango grelhado</td><td class="food-qty">150g</td><td class="food-kcal">248</td><td>0</td><td>47</td><td>5</td><td class="food-sub">Grelhado ou assado · sem molhos industrializados</td></tr>
+      <tr><td class="food-name">Abóbora cozida</td><td class="food-qty">150g</td><td class="food-kcal">39</td><td>10</td><td>1</td><td>0</td><td class="food-sub">Tolerada · anti-inflamatória · suave ao intestino</td></tr>
+      <tr><td class="food-name">Abobrinha refogada</td><td class="food-qty">150g</td><td class="food-kcal">26</td><td>4</td><td>2</td><td>0</td><td class="food-sub">Tolerada · levíssima · boa para digestão</td></tr>
+      <tr><td class="food-name">Abacaxi</td><td class="food-qty">150g</td><td class="food-kcal">75</td><td>20</td><td>1</td><td>0</td><td class="food-sub">Auxilia na digestão (bromelina)</td></tr></tbody></table></div><p class="swipe-hint">← deslize →</p><div class="meal-obs-area"><textarea placeholder="Observações desta refeição..." data-key="meal-obs-op5-3" onchange="saveObs(this)"></textarea></div></div><div class="meal-card"><div class="meal-header"><div class="meal-header-left"><div class="meal-num">4</div><div><div class="meal-name">Peri-Treino Tarde</div><span class="meal-time">~16h–19h · pré e pós segundo turno</span></div></div><div class="meal-kcal">~745 <span>kcal</span></div></div><div class="meal-table-wrap"><table class="meal-table"><thead><tr><th>Alimento</th><th>Qtd.</th><th>kcal</th><th>Carb (g)</th><th>Ptn (g)</th><th>Gord (g)</th><th>Observação</th></tr></thead><tbody><tr><td class="food-name">Banana</td><td class="food-qty">300g</td><td class="food-kcal">270</td><td>69</td><td>3</td><td>1</td><td class="food-sub">Energia rápida · potássio · sem glúten</td></tr><tr><td class="food-name">Frutas variadas</td><td class="food-qty">200g</td><td class="food-kcal">180</td><td>45</td><td>2</td><td>1</td><td class="food-sub">Banana · Mamão · Melão · Abacaxi · Maçã</td></tr><tr><td class="food-name">Creme de arroz</td><td class="food-qty">50g</td><td class="food-kcal">180</td><td>40</td><td>3</td><td>1</td><td class="food-sub">Carboidrato de fácil digestão · tolerado · sem glúten</td></tr><tr><td class="food-name">Whey protein isolado</td><td class="food-qty">30g</td><td class="food-kcal">115</td><td>2</td><td>26</td><td>0</td><td class="food-sub">Proteína de rápida absorção · recuperação</td></tr></tbody></table></div><p class="swipe-hint">← deslize →</p><div class="meal-obs-area"><textarea placeholder="Observações desta refeição..." data-key="meal-obs-op5-4" onchange="saveObs(this)"></textarea></div></div><div class="meal-card"><div class="meal-header"><div class="meal-header-left"><div class="meal-num">5</div><div><div class="meal-name">Jantar</div><span class="meal-time">~21h · refeição principal noturna</span></div></div><div class="meal-kcal">~946 <span>kcal</span></div></div><div class="meal-table-wrap"><table class="meal-table"><thead><tr><th>Alimento</th><th>Qtd.</th><th>kcal</th><th>Carb (g)</th><th>Ptn (g)</th><th>Gord (g)</th><th>Observação</th></tr></thead><tbody><tr><td class="food-name">Arroz branco</td><td class="food-qty">300g</td><td class="food-kcal">384</td><td>85</td><td>7</td><td>1</td><td class="food-sub">Sem glúten naturalmente</td></tr>
+      <tr><td class="food-name">Peito de frango grelhado</td><td class="food-qty">150g</td><td class="food-kcal">248</td><td>0</td><td>47</td><td>5</td><td class="food-sub">Grelhado ou assado · sem molhos industrializados</td></tr>
+      <tr><td class="food-name">Abóbora cozida</td><td class="food-qty">100g</td><td class="food-kcal">26</td><td>7</td><td>1</td><td>0</td><td class="food-sub">Tolerada · suave ao intestino</td></tr>
+      <tr><td class="food-name">Abobrinha refogada</td><td class="food-qty">100g</td><td class="food-kcal">17</td><td>3</td><td>1</td><td>0</td><td class="food-sub">Tolerada · levíssima</td></tr>
+      <tr><td class="food-name">Frutas variadas</td><td class="food-qty">150g</td><td class="food-kcal">135</td><td>34</td><td>2</td><td>0</td><td class="food-sub">Banana · Mamão · Melão · Abacaxi · Maçã</td></tr>
+      <tr><td class="food-name">Creme de ricota</td><td class="food-qty">80g</td><td class="food-kcal">136</td><td>3</td><td>7</td><td>11</td><td class="food-sub">Tolerado · sem lactose na versão light · fonte de gordura boa</td></tr></tbody></table></div><p class="swipe-hint">← deslize →</p><div class="meal-obs-area"><textarea placeholder="Observações desta refeição..." data-key="meal-obs-op5-5" onchange="saveObs(this)"></textarea></div></div></div><div id="dieta-7ref" class="versao-content"><div class="meal-total"><div class="total-pill"><span class="label">Total diário</span><span class="value">~4.150</span><span style="font-size:10px;color:var(--white-dim);">kcal</span></div></div>
 
   <!-- R0 · Pré-Corrida -->
   <div class="meal-card">
@@ -898,8 +922,7 @@ textarea.q-input{resize:vertical;min-height:80px;}
       <tr><td class="food-name">Creme de ricota</td><td class="food-qty">80g</td><td class="food-kcal">136</td><td>3</td><td>7</td><td>11</td><td class="food-sub">Tolerado · sem lactose na versão light · fonte de gordura boa</td></tr>
     </tbody></table></div><p class="swipe-hint">← deslize →</p>
     <div class="meal-obs-area"><textarea placeholder="Observações desta refeição..." data-key="meal-obs-6" onchange="saveObs(this)"></textarea></div>
-  </div>
-
+  </div></div></div>
   <!-- ORIENTAÇÕES ESSENCIAIS -->
   <div class="section-header" style="margin-top:46px;"><h2>Orientações <span>Essenciais</span></h2><div class="section-line"></div></div>
   <div class="biblio-block">
@@ -1921,6 +1944,10 @@ if (localStorage.getItem('lb-theme') === 'light') document.body.classList.add('l
 
 // ── SAVE/LOAD ──
 function saveObs(el) { localStorage.setItem(el.dataset.key, el.value); }
+function showVersao(target, btn){ var g=btn.closest('.versao-group'); if(!g) return;
+  g.querySelectorAll(':scope > .versao-content').forEach(function(c){c.classList.remove('active');});
+  g.querySelectorAll(':scope > .versao-tabs .versao-tab').forEach(function(t){t.classList.remove('active');});
+  var el=document.getElementById(target); if(el) el.classList.add('active'); if(btn) btn.classList.add('active'); }
 function saveCardio(el) { localStorage.setItem(el.dataset.key, el.checked ? '1' : '0'); }
 function saveLoad(el) {
   const key = el.dataset.key;
@@ -2159,7 +2186,7 @@ function searchSubs() {
   const q = document.getElementById('subSearch').value.toLowerCase().trim();
   const results = document.getElementById('sub-results');
   if (!q || q.length < 2) { results.innerHTML = ''; return; }
-  const rows = document.querySelectorAll('.meal-table tbody tr');
+  const _sc=document.querySelector('#dieta .versao-content.active')||document; const rows = _sc.querySelectorAll('.meal-table tbody tr');
   const found = [];
   rows.forEach(row => {
     const name = row.querySelector('.food-name');
@@ -2259,7 +2286,7 @@ ${obsGeral}
 `;
   txt += `
 ━━━━━━━━━━━━━━━━━━━━━━━
-Enviado via Portal Consultoria LB — Fulano de Tal`;
+Enviado via Portal Consultoria LB — Nader Hijazi`;
   document.getElementById('fb-result-text').textContent = txt;
   document.getElementById('fb-result').classList.add('show');
   document.getElementById('fb-result').scrollIntoView({behavior:'smooth'});
@@ -2431,7 +2458,7 @@ ${get('an-obs')}
 `;
   txt += `
 ━━━━━━━━━━━━━━━━━━━━━━━
-Enviado via Portal Consultoria LB — Fulano de Tal`;
+Enviado via Portal Consultoria LB — Nader Hijazi`;
   document.getElementById('an-result-text').textContent = txt;
   document.getElementById('an-result').classList.add('show');
   document.getElementById('an-result').scrollIntoView({behavior:'smooth'});
